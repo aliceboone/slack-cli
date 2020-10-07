@@ -1,4 +1,5 @@
 require 'simplecov'
+
 SimpleCov.start do
   add_filter 'test/'
 end
@@ -8,8 +9,17 @@ require 'minitest/autorun'
 require 'minitest/reporters'
 require 'minitest/skip_dsl'
 require 'vcr'
+require 'webmock/minitest'
+require 'dotenv'
+
+Dotenv.load
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
+
+# # Require_relative your lib files here!
+require_relative '../lib/workspace'
+require_relative '../lib/users'
+require_relative '../lib/channels'
 
 VCR.configure do |config|
   config.cassette_library_dir = "test/cassettes"
@@ -25,5 +35,12 @@ VCR.configure do |config|
   }
 
   # Don't leave our token lying around in a cassette file.
-
+  # Filter_sensitive_data to your VCR configuration
+  config.filter_sensitive_data("SLACK_TOKEN") do
+    ENV["SLACK_TOKEN"]
+  end
 end
+
+# Any tests involving a User should use the username SlackBot
+
+# Any tests involving a Channel should use the #random channel

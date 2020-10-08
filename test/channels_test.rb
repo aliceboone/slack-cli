@@ -36,5 +36,10 @@ describe "Channels class" do
       " - Number of members: 104\n"+" - Slack ID: C016EHQMZ6X"
     end
 
+    it "returns all channels" do
+      VCR.use_cassette "channels_test" do
+        result = SlackCli::Channels.load_data
+      end
+    end
   end
 end

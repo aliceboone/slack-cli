@@ -3,6 +3,8 @@ require 'httparty'
 BASE_URL = "https://slack.com/api/"
 
 module SlackCli
+  class SlackCliError < StandardError; end
+
   class Recipient
     attr_reader :slack_id
 
@@ -24,5 +26,22 @@ module SlackCli
         raise ArgumentError, 'ID cannot be blank or less than one.'
       end
     end
+
+    def send_msg(message)
+    url = "#{BASE_URL}chat.postMessage"
+
+    response = HTTParty.post(url,
+                             headers: { 'Content-Type' => 'application/x-www-form-urlencoded' },
+                             body: {
+                                 token: ENV["SLACK_TOKEN"],
+                                 channel: slack_id,
+                                 text: message
+                             })
+    unless response.code == 200 || response.parsed_response["ok"]
+      raise SlackCliError, "Error: #{response.parsed_response["error"]}"
+    end
+    return true
+  end
+
   end
 end

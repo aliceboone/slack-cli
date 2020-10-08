@@ -1,10 +1,12 @@
+
+
 require 'dotenv'
 require 'table_print'
 
 require_relative 'workspace'
 
 def menu
-  puts "Choose the number of options you can see!:\n 1 - List Users\n"+" 2 - List Channels\n"+" 3 - Select user\n"+" 4 - Select channel\n"+" 5 - Details\n"+" 6 - Exit\n"
+  puts "Choose the number of options you can see!:\n 1 - List Users\n"+" 2 - List Channels\n"+" 3 - Select user\n"+" 4 - Select channel\n"+" 5 - Details\n"+" 6 - Send a message\n"+" 7 - Exit\n"
 end
 
 def main
@@ -22,12 +24,12 @@ def main
     menu
     user_command = gets.chomp
     case user_command
-    when "6"
+    when "7"
       done = true
     when "1"
-      tp workspace.all_users
+      tp workspace.all_users, "slack_id", "username", "real_name"
     when "2"
-      tp workspace.all_channels
+      tp workspace.all_channels, "slack_id", "channel_name", "topic", "member_count"
     when "3"
       puts "Enter a username or slack_id:"
       user_input = gets.chomp
@@ -36,8 +38,13 @@ def main
       puts "Enter a channel name or slack_id:"
       channel_input = gets.chomp
       for_detail = workspace.selected_channel(channel_input)
+      for_detail.send_msg("Test message")
     when "5"
       puts for_detail.to_s
+    when "6"
+      puts "Please type the message you want to send!"
+      send_msg_input = gets.chomp
+      for_detail.send_msg(send_msg_input)
     else
       puts "Invalid number, try again!"
     end

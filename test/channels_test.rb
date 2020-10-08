@@ -32,8 +32,9 @@ describe "Channels class" do
     end
 
     it "turns the object id to string" do 
-      expect(@channel_name.to_s).must_equal " - Channel Name: csmemes\n"+" - Topic: Funny Memes\n"+          
+      expect(@channels.to_s).must_equal " - Channel Name: csmemes\n"+" - Topic: Funny Memes\n"+
       " - Number of members: 104\n"+" - Slack ID: C016EHQMZ6X"
     end
+
   end
 end

@@ -1,7 +1,7 @@
 require_relative 'test_helper'
 
 describe "Users class" do
-  describe("Users instantiation") {
+  describe("Users instantiation") do
     before do
       @users = SlackCli::Users.new(
           username: "Jane",
@@ -34,5 +34,5 @@ describe "Users class" do
     it "turns the object id to string" do 
       expect(@users.to_s).must_equal " - Username: Jane\n"+" - Real Name: Jane Park\n"+" - Slack ID: U015QQ2BXFZ" 
     end
-  }
+  end
 end

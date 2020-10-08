@@ -26,19 +26,18 @@ module SlackCli
       elsif user_by_id != nil
         @selected_user = user_by_id
       end
-      return
-      @selected_user
-      end
+      return @selected_user
+    end
+
     def selected_channel(channel_input)
-      channel_by_name = @users.find {|channel| channel.channel_name == channel_input}
-      channel_by_id = @users.find {|channel| channel.slack_id == channel_input}
+      channel_by_name = @channels.find {|channel| channel.channel_name == channel_input}
+      channel_by_id = @channels.find {|channel| channel.slack_id == channel_input}
       if  channel_by_name != nil
         @selected_channel= channel_by_name
       elsif channel_by_id != nil
         @selected_channel = channel_by_id
       end
-      return
-      @selected_channel
+      return @selected_channel
     end
   end
 end

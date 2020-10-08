@@ -1,4 +1,5 @@
 require 'dotenv'
+require 'table_print'
 
 require_relative 'workspace'
 
@@ -8,9 +9,7 @@ end
 
 def main
 
-  Dotenv.load
-
-  # Raise an error if Key is not correct
+  Dotenv.load  # Raise an error if Key is not correct
   unless ENV["SLACK_TOKEN"]
     raise ArgumentError, "Could not load API Key"
   end
@@ -26,9 +25,9 @@ def main
     when "6"
       done = true
     when "1"
-      td   workspace.all_users
+      tp workspace.all_users
     when "2"
-      td workspace.all_channels
+      tp workspace.all_channels
     when "3"
       puts "Enter a username or slack_id:"
       user_input = gets.chomp
@@ -44,6 +43,4 @@ def main
     end
   end
 end
-
-
 main if __FILE__ == $PROGRAM_NAME

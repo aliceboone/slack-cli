@@ -10,6 +10,14 @@ module SlackCli
       @username = username
       @real_name = real_name
     end
+    
+    def to_s
+      details_user = 
+      " - Username: #{@username}\n"+
+      " - Real Name: #{@real_name}\n"+
+      " - Slack ID: #{@slack_id}"      
+      return details_user
+    end
 
     private
     def self.load_data

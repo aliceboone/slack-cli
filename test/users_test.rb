@@ -30,5 +30,9 @@ describe "Users class" do
       expect(@users.real_name).must_be_kind_of String
       expect(@users.slack_id).must_be_kind_of String
     end
+
+    it "turns the object id to string" do 
+      expect(@users.to_s).must_equal " - Username: Jane\n"+" - Real Name: Jane Park\n"+" - Slack ID: U015QQ2BXFZ" 
+    end
   }
 end

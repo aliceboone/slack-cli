@@ -11,6 +11,14 @@ module SlackCli
       @topic = topic
       @member_count = member_count.to_i
     end
+    def to_s
+      details_channel =          
+      " - Channel Name: #{@channel_name}\n"+          
+      " - Topic: #{@topic}\n"+          
+      " - Number of members: #{@member_count}\n"+          
+      " - Slack ID: #{@slack_id}"      
+      return details_channel
+    end
 
     private
     def self.load_data

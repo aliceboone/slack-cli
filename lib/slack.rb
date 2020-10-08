@@ -3,7 +3,7 @@ require 'dotenv'
 require_relative 'workspace'
 
 def menu
-  puts "Choose the number of options you can see!:\n 1 - List Users\n"+" 2 - List Channels\n"+" 3 - Exit\n"
+  puts "Choose the number of options you can see!:\n 1 - List Users\n"+" 2 - List Channels\n"+" 3 - Select user\n"+" 4 - Select channel\n"+" 5 - Details\n"+" 6 - Exit\n"
 end
 
 def main
@@ -17,24 +17,33 @@ def main
 
   puts "Welcome to the Ada Slack CLI!"
   workspace = SlackCli::Workspace.new
-
-  # TODO project
   done = false
+  for_detail = ""
   until done
     menu
     user_command = gets.chomp
     case user_command
-    when "3"
+    when "6"
       done = true
     when "1"
-      workspace.all_users.each { |user| puts "Username: #{ user.username }, Real name: #{ user.real_name }, Slack Id: #{ user.slack_id }"}
+      td   workspace.all_users
     when "2"
-      workspace.all_channels.each { |channel| puts "Channel's name: #{ channel.channel_name}, Topic: #{ channel.topic}, Member count: #{channel.member_count}, Slack Id: #{ channel.slack_id}}"}
+      td workspace.all_channels
+    when "3"
+      puts "Enter a username or slack_id:"
+      user_input = gets.chomp
+      for_detail = workspace.selected_user(user_input)
+    when "4"
+      puts "Enter a channel name or slack_id:"
+      channel_input = gets.chomp
+      for_detail = workspace.selected_channel(channel_input)
+    when "5"
+      puts for_detail.to_s
     else
       puts "Invalid number, try again!"
     end
   end
-  puts "Thank you for using the Ada Slack CLI"
 end
+
 
 main if __FILE__ == $PROGRAM_NAME

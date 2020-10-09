@@ -1,12 +1,10 @@
-
-
 require 'dotenv'
 require 'table_print'
 
 require_relative 'workspace'
-
+# Define method to display menu
 def menu
-  puts "Choose the number of options you can see!:\n 1 - List Users\n"+" 2 - List Channels\n"+" 3 - Select user\n"+" 4 - Select channel\n"+" 5 - Details\n"+" 6 - Send a message\n"+" 7 - Exit\n"
+  puts "Choose a number for the options bellow!:\n 1 - List Users\n"+" 2 - List Channels\n"+" 3 - Select user\n"+" 4 - Select channel\n"+" 5 - Details\n"+" 6 - Send a message\n"+" 7 - Exit\n"
 end
 
 def main
@@ -15,8 +13,8 @@ def main
   unless ENV["SLACK_TOKEN"]
     raise ArgumentError, "Could not load API Key"
   end
-
-  puts "Welcome to the Ada Slack CLI!"
+  # Define how user will see menu options and iterate with menu
+  puts "***** Welcome to the Ada Slack CLI! *****"
   workspace = SlackCli::Workspace.new
   done = false
   for_detail = ""
@@ -46,7 +44,7 @@ def main
       end
 
     when "5"
-      puts for_detail.to_s
+      puts for_detail.details
     when "6"
       if for_detail.nil?
         puts "Yor message can not be sent!"
@@ -60,5 +58,6 @@ def main
       puts "Invalid number, try again!"
     end
   end
+  puts "Thank you for using the Ada Slack CLI"
 end
 main if __FILE__ == $PROGRAM_NAME

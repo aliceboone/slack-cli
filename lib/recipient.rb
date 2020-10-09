@@ -4,7 +4,7 @@ BASE_URL = "https://slack.com/api/"
 
 module SlackCli
   class SlackCliError < StandardError; end
-
+  # Create class and constructor for recipient
   class Recipient
     attr_reader :slack_id
 
@@ -13,7 +13,7 @@ module SlackCli
       @slack_id = slack_id
     end
 
-    # Request(get) data from the API
+    # Request to get data from the API
     def self.load_data(specific_list)
       url = "#{BASE_URL}#{specific_list}"
       query_items = {token: ENV["SLACK_TOKEN"]}
@@ -21,12 +21,14 @@ module SlackCli
       return response
     end
 
+    # Validate ID
     def self.validate_id(slack_id)
       if slack_id.nil?
         raise ArgumentError, 'ID cannot be blank or less than one.'
       end
     end
 
+    # Request to post data to the API
     def send_msg(message)
     url = "#{BASE_URL}chat.postMessage"
 

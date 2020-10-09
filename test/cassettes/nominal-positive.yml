@@ -1,0 +1,202 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage
+    body:
+      encoding: UTF-8
+      string: token=SLACK_TOKEN&channel=test_channel_alice&text=test%20message
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 08 Oct 2020 22:10:06 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 9ea24320b6cc58a007c16504d440a822
+      X-Oauth-Scopes:
+      - channels:read,chat:write,users:read,im:read,mpim:read,groups:read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Slack-Backend:
+      - r
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      X-Accepted-Oauth-Scopes:
+      - chat:write
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Content-Length:
+      - '339'
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Via:
+      - haproxy-www-n7fv,haproxy-edge-pdx-raf5
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channel":"C01C8UKJVEW","ts":"1602195006.001500","message":{"bot_id":"B01CD5TCH1P","type":"message","text":"test
+        message","user":"U01C6NC45V2","ts":"1602195006.001500","team":"T016J51T03T","bot_profile":{"id":"B01CD5TCH1P","deleted":false,"name":"Earth
+        - AliceBoone - API Project","updated":1601941323,"app_id":"A01BKPPNTSB","icons":{"image_36":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png","image_48":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png","image_72":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"},"team_id":"T016J51T03T"}}}'
+  recorded_at: Thu, 08 Oct 2020 22:10:06 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage
+    body:
+      encoding: UTF-8
+      string: token=SLACK_TOKEN&channel=C016EHQMZ6X&text=test%20message
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 08 Oct 2020 23:03:02 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - 9d58308424fccecc43911580604d3294
+      X-Oauth-Scopes:
+      - channels:read,chat:write,users:read,im:read,mpim:read,groups:read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Slack-Backend:
+      - r
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      X-Accepted-Oauth-Scopes:
+      - chat:write
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Content-Length:
+      - '57'
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Via:
+      - haproxy-www-enb7,haproxy-edge-pdx-rf66
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":false,"error":"not_in_channel"}'
+  recorded_at: Thu, 08 Oct 2020 23:03:03 GMT
+- request:
+    method: post
+    uri: https://slack.com/api/chat.postMessage
+    body:
+      encoding: UTF-8
+      string: token=SLACK_TOKEN&channel=U015QQ2BXFZ&text=test%20message
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 08 Oct 2020 23:03:03 GMT
+      Server:
+      - Apache
+      X-Slack-Req-Id:
+      - a5ee588ed3a097708c132c55b930420b
+      X-Oauth-Scopes:
+      - channels:read,chat:write,users:read,im:read,mpim:read,groups:read
+      Access-Control-Expose-Headers:
+      - x-slack-req-id, retry-after
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Slack-Backend:
+      - r
+      X-Content-Type-Options:
+      - nosniff
+      Expires:
+      - Mon, 26 Jul 1997 05:00:00 GMT
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Xss-Protection:
+      - '0'
+      X-Accepted-Oauth-Scopes:
+      - chat:write
+      Access-Control-Allow-Headers:
+      - slack-route, x-slack-version-ts, x-b3-traceid, x-b3-spanid, x-b3-parentspanid,
+        x-b3-sampled, x-b3-flags
+      Vary:
+      - Accept-Encoding
+      Pragma:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Referrer-Policy:
+      - no-referrer
+      Content-Length:
+      - '339'
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Via:
+      - haproxy-www-98pr,haproxy-edge-pdx-gxzc
+    body:
+      encoding: ASCII-8BIT
+      string: '{"ok":true,"channel":"D01CZ0EAY3A","ts":"1602198183.000100","message":{"bot_id":"B01CD5TCH1P","type":"message","text":"test
+        message","user":"U01C6NC45V2","ts":"1602198183.000100","team":"T016J51T03T","bot_profile":{"id":"B01CD5TCH1P","deleted":false,"name":"Earth
+        - AliceBoone - API Project","updated":1601941323,"app_id":"A01BKPPNTSB","icons":{"image_36":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png","image_48":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png","image_72":"https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"},"team_id":"T016J51T03T"}}}'
+  recorded_at: Thu, 08 Oct 2020 23:03:03 GMT
+recorded_with: VCR 6.0.0

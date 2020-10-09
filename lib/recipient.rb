@@ -38,10 +38,9 @@ module SlackCli
                                  text: message
                              })
     unless response.code == 200 || response.parsed_response["ok"]
-      raise SlackCliError, "Error: #{response.parsed_response["error"]}"
+      raise SlackCli::SlackCliError, "Error: #{response.parsed_response["error"]}"
     end
     return true
-  end
-
+    end
   end
 end

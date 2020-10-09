@@ -41,5 +41,11 @@ describe "Channels class" do
         result = SlackCli::Channels.load_data
       end
     end
+    it "can send a message to the channel" do
+      VCR.use_cassette("nominal-positive") do
+        answer = @channels.send_msg("test message")
+        expect(answer).must_equal true
+      end
+    end
   end
 end

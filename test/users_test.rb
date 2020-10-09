@@ -34,5 +34,18 @@ describe "Users class" do
     it "turns the object id to string" do 
       expect(@users.to_s).must_equal " - Username: Jane\n"+" - Real Name: Jane Park\n"+" - Slack ID: U015QQ2BXFZ" 
     end
+
+    it "returns all users" do
+      VCR.use_cassette "users_test" do
+        result = SlackCli::Users.load_data
+      end
+    end
+
+    it "can send a message to the user" do
+      VCR.use_cassette("nominal-positive") do
+        answer = @users.send_msg("test message")
+        expect(answer).must_equal true
+      end
+    end
   end
 end

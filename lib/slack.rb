@@ -34,17 +34,28 @@ def main
       puts "Enter a username or slack_id:"
       user_input = gets.chomp
       for_detail = workspace.selected_user(user_input)
+      if for_detail.nil?
+        puts "Can not find the user."
+      end
     when "4"
       puts "Enter a channel name or slack_id:"
       channel_input = gets.chomp
       for_detail = workspace.selected_channel(channel_input)
-      for_detail.send_msg("Test message")
+      if for_detail.nil?
+        puts "Can not find the channel."
+      end
+
     when "5"
       puts for_detail.to_s
     when "6"
-      puts "Please type the message you want to send!"
-      send_msg_input = gets.chomp
-      for_detail.send_msg(send_msg_input)
+      if for_detail.nil?
+        puts "Yor message can not be sent!"
+      else
+        puts "Please type the message you want to send!"
+        send_msg_input = gets.chomp
+        for_detail.send_msg(send_msg_input)
+        puts "Your message was sent with success!"
+      end
     else
       puts "Invalid number, try again!"
     end
